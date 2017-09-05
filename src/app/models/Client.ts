@@ -1,7 +1,7 @@
 export interface Client {
   $key?:string;
-  firstname:string;
-  lastname:string;
+  firstName:string;
+  lastName:string;
   email:string;
   phone:string;
   balance:number;
