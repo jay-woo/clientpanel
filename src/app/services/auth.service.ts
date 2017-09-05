@@ -9,11 +9,22 @@ export class AuthService {
     public afAuth:AngularFireAuth
   ) { }
 
+  // Login user
   login(email:string, password:string) {
     return new Promise((resolve, reject) => {
       this.afAuth.auth.signInWithEmailAndPassword(email, password)
         .then(userData => resolve(userData),
         err => reject(err));
     });
+  }
+
+  // Logout user
+  logout() {
+    this.afAuth.auth.signOut();
+  }
+
+  // Check user status
+  getAuth() {
+    return this.afAuth.authState.map(auth => auth);
   }
 }
