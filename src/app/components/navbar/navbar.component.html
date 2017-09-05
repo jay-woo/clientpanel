@@ -22,6 +22,9 @@
             <a class="nav-link" href="#">{{loggedInUser}}</a>
           </li>
           <li *ngIf="isLoggedIn" class="nav-item">
+            <a class="nav-link" href="#" routerLink="/settings">Settings</a>
+          </li>
+          <li *ngIf="isLoggedIn" class="nav-item">
             <a class="nav-link" href="#" (click)="onLogoutClick()">Logout</a>
           </li>
         </ul>
