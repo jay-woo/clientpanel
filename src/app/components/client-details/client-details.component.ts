@@ -32,7 +32,7 @@ export class ClientDetailsComponent implements OnInit {
         this.hasBalance = true;
       }
       this.client = client;
-    })
+    });
   }
 
   updateBalance(id:string) {
@@ -40,5 +40,13 @@ export class ClientDetailsComponent implements OnInit {
     this.clientService.updateClient(this.id, this.client);
     this.flashMessagesService.show('Balance updated', {cssClass: 'alert-success', timeout: 4000});
     this.router.navigate(['/client/' + this.id]);
+  }
+
+  onDeleteClick() {
+    if (confirm("Are you sure you want to delete this client?")) {
+      this.clientService.deleteClient(this.id);
+      this.flashMessagesService.show('Client deleted', {cssClass: 'alert-success', timeout: 4000});
+      this.router.navigate(['/']);
+    }
   }
 }
